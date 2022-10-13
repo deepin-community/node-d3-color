@@ -1,0 +1,67 @@
+node-d3-color (1.2.8-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Use secure copyright file specification URI.
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Update standards version to 4.4.1, no changes needed.
+  * Apply multi-arch hints. + node-d3-color: Add Multi-Arch: foreign.
+  * Update standards version to 4.5.0, no changes needed.
+
+  [ Pirate Praveen ]
+  * Bump Standards-Version to 4.5.1 (no changes needed)
+  * Use node-rollup-plugin-terser (now available in the archive)
+  * Enable nocheck build profile
+  * Use pkg-js-tools auto install
+
+ -- Pirate Praveen <praveen@debian.org>  Tue, 15 Dec 2020 00:43:34 +0530
+
+node-d3-color (1.2.8-1) unstable; urgency=medium
+
+  * New upstream version 1.2.8
+  * Make build reproducible
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 07 Jul 2019 11:00:18 +0530
+
+node-d3-color (1.2.3-2) experimental; urgency=medium
+
+  * Install ES module (src directory)
+
+ -- Pirate Praveen <praveen@debian.org>  Tue, 18 Jun 2019 21:11:41 +0530
+
+node-d3-color (1.2.3-1) experimental; urgency=medium
+
+  * New upstream version 1.2.3
+  * Bump Standards-Version to 4.3.0 (no changes needed)
+  * Use salsa.debian.org in Vcs-* fields
+  * Switch to using rollup.config.js directly
+  * Switch to pkg-js-tools for tests
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 17 Jun 2019 22:29:28 +0530
+
+node-d3-color (1.0.3-4) unstable; urgency=medium
+
+  * Build using rollup (webpack was used before rollup was available in main)
+  * Bump debhelper compat to 11
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 28 Feb 2018 23:26:08 +0530
+
+node-d3-color (1.0.3-3) unstable; urgency=medium
+
+  * Generate umd format module like upstream, but using webpack
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 05 Jan 2018 23:17:23 +0530
+
+node-d3-color (1.0.3-2) unstable; urgency=medium
+
+  * Use babel to transpile (move to main section) (Closes: #877212)
+
+ -- Pirate Praveen <praveen@debian.org>  Sun, 01 Oct 2017 16:20:09 +0530
+
+node-d3-color (1.0.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #874546)
+
+ -- Pirate Praveen <praveen@debian.org>  Thu, 07 Sep 2017 13:31:02 +0530
