@@ -1,0 +1,21 @@
+Description: avoid backtracking, fixes ReDoS
+Author: Mike Bostock <mbostock@gmail.com>
+Bug: https://github.com/advisories/GHSA-36jr-mh4h-2g58
+Forwarded: not-needed
+Applied-Upstream: 3.1.0, https://github.com/d3/d3-color/pull/100
+Reviewed-By: Yadd <yadd@debian.org>
+Last-Update: 2023-09-04
+
+--- a/src/color.js
++++ b/src/color.js
+@@ -6,8 +6,8 @@
+ export var brighter = 1 / darker;
+ 
+ var reI = "\\s*([+-]?\\d+)\\s*",
+-    reN = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)\\s*",
+-    reP = "\\s*([+-]?\\d*\\.?\\d+(?:[eE][+-]?\\d+)?)%\\s*",
++    reN = "\\s*([+-]?(?:\\d*\\.)?\\d+(?:[eE][+-]?\\d+)?)\\s*",
++    reP = "\\s*([+-]?(?:\\d*\\.)?\\d+(?:[eE][+-]?\\d+)?)%\\s*",
+     reHex = /^#([0-9a-f]{3,8})$/,
+     reRgbInteger = new RegExp("^rgb\\(" + [reI, reI, reI] + "\\)$"),
+     reRgbPercent = new RegExp("^rgb\\(" + [reP, reP, reP] + "\\)$"),
