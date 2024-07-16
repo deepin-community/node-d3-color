@@ -26,6 +26,21 @@ tape("color(format) parses 3-digit hexadecimal (e.g., \"#abc\")", function(test)
   test.end();
 });
 
+tape("color(format) does not parse 7-digit hexadecimal (e.g., \"#abcdef3\")", function(test) {
+  test.strictEqual(color.color("#abcdef3"), null);
+  test.end();
+});
+
+tape("color(format) parses 8-digit hexadecimal (e.g., \"#abcdef33\")", function(test) {
+  test.rgbEqual(color.color("#abcdef33"), 171, 205, 239, 0.2);
+  test.end();
+});
+
+tape("color(format) parses 4-digit hexadecimal (e.g., \"#abc3\")", function(test) {
+  test.rgbEqual(color.color("#abc3"), 170, 187, 204, 0.2);
+  test.end();
+});
+
 tape("color(format) parses RGB integer format (e.g., \"rgb(12,34,56)\")", function(test) {
   test.rgbEqual(color.color("rgb(12,34,56)"), 12, 34, 56, 1);
   test.end();
@@ -131,6 +146,13 @@ tape("color(format) does not allow made-up names", function(test) {
   test.end();
 });
 
+tape("color(format) allows achromatic colors", function(test) {
+  test.rgbEqual(color.color("rgba(0,0,0,0)"), NaN, NaN, NaN, 0);
+  test.rgbEqual(color.color("#0000"), NaN, NaN, NaN, 0);
+  test.rgbEqual(color.color("#00000000"), NaN, NaN, NaN, 0);
+  test.end();
+});
+
 tape("color(format) does not allow whitespace before open paren or percent sign", function(test) {
   test.equal(color.color("rgb (120,30,50)"), null);
   test.equal(color.color("rgb (12%,30%,50%)"), null);
@@ -157,7 +179,6 @@ tape("color(format) returns undefined RGB channel values for unknown formats", f
   test.equal(color.color("hasOwnProperty"), null);
   test.equal(color.color("__proto__"), null);
   test.equal(color.color("#ab"), null);
-  test.equal(color.color("#abcd"), null);
   test.end();
 });
 
